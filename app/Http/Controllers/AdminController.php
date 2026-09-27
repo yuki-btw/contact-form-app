@@ -16,6 +16,7 @@ class AdminController extends Controller
         $contacts = Contact::with(['category', 'tags'])
             ->search($request->validated())
             ->latest()
+            ->orderByDesc('id')
             ->paginate(7);
         $categories = Category::all();
         $tags = Tag::all();
