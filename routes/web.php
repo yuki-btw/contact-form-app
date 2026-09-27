@@ -23,6 +23,7 @@ Route::get('/thanks', [ContactController::class, 'thanks']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/contacts/export', [ContactController::class, 'export']);
     Route::get('/admin/contacts/{contact}', [AdminController::class, 'show']);
     Route::delete('/admin/contacts/{contact}', [AdminController::class, 'destroy']);
 
